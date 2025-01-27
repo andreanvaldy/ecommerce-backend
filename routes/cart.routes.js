@@ -3,7 +3,7 @@ const passport = require('passport');
 const cartController = require('../controllers/cart.controller');
 const router = express.Router();
 
-router.post('/cart', passport.authenticate('jwt', { session: false }), cartController.addToCart);
-router.get('/cart', passport.authenticate('jwt', { session: false }), cartController.getCart);
+router.post('api/cart', passport.authenticate('jwt', { session: false }), cartController.addToCart);
+router.get('api/cart', passport.authenticate('jwt', { session: false }), cartController.getCart);
 
 module.exports = router;
