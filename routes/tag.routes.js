@@ -11,3 +11,7 @@ router.get('/tags', passport.authenticate('jwt', { session: false }), tagControl
 
 module.exports = router;
 
+//kesimpulan
+// ✅ Rute POST /tags → Untuk menambahkan tag baru (hanya pengguna yang login).
+// ✅ Rute GET /tags → Untuk mengambil daftar semua tag (juga butuh login).
+// ✅ Menggunakan passport.authenticate('jwt', { session: false }) untuk memastikan hanya pengguna terautentikasi yang bisa mengakses API ini.

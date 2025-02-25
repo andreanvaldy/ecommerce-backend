@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const mongoose = require('mongoose'); //Library untuk berkomunikasi dengan MongoDB.
+const dotenv = require('dotenv'); //Digunakan untuk membaca variabel lingkungan dari .env (misalnya, MONGO_URI).
 
-dotenv.config();
+dotenv.config();//Memuat Konfigurasi dari .env
 
+//Fungsi untuk Menghubungkan ke Database
 const connectDB = async () => {
     try {
-      await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce", {
+      await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce", { //Mongoose connect() untuk menghubungkan ke MongoDB
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
@@ -18,3 +19,9 @@ const connectDB = async () => {
   };
 
 module.exports = connectDB;
+
+
+// ✔ db.js menangani koneksi MongoDB dengan Mongoose.
+// ✔ Menggunakan .env agar lebih fleksibel.
+// ✔ Jika koneksi gagal, aplikasi akan berhenti (process.exit(1)).
+// ✔ Fungsi ini bisa dipanggil di server.js untuk menghubungkan database.
